@@ -10,5 +10,13 @@
     "test": "mocha"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjkomor/validation_tests.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tjkomor/validation_tests/issues"
+  },
+  "homepage": "https://github.com/tjkomor/validation_tests#readme"
 }
