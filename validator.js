@@ -9,13 +9,31 @@ Validator.prototype.isValid = function(user) {
   return false;
 }
 
-Validator.prototype.nameValidate = function(name) {
-  var regex = /^[a-zA-Z ]{2,30}$/
-  if(name && regex.test(name)){
+Validator.prototype.checkNameLength = function (name){
+  if (name && name.length < 2){
+    this.errorMessage = "Name must be longer than two characters"
+    return false
+  } else if (name && name.length > 30){
+    this.errorMessage = "Name must be shorter than 30 characters"
+    return false
+  }
+  return true
+}
+
+Validator.prototype.checkSpecialChars = function (name){
+  var regex = /^[a-zA-Z]+$/
+  if (regex.test(name)){
+    this.errorMessage = "Must enter valid alpahbetic charcaters"
     return true
   }
-  this.errorMessage = "Must enter valid alpahbetic charcaters"
-  return false;
+}
+
+
+Validator.prototype.nameValidate = function(name) {
+  if (name && this.checkNameLength(name) && this.checkSpecialChars(name)){
+    return true
+  }
+  return false
 }
 
 Validator.prototype.emailValidate = function (email){
